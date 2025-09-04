@@ -1,0 +1,10 @@
+# pdb.yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: demo-app
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: demo-app

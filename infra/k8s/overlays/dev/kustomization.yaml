@@ -1,9 +1,16 @@
+# infra/k8s/overlays/dev/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namePrefix: dev-
 namespace: demo
 resources:
   - ../../base
+patches:
+  - path: deployment-patch.yaml
+configMapGenerator:
+  - name: app-config
+    literals:
+      - ENVIRONMENT=dev
 images:
-  - name: docker.io/inestmimi123/firtsapp
-    newTag: "v0.1.0"
+  - name: ghcr.io/inestmimi123/app
+    newTag: v0.1.0

@@ -1,0 +1,15 @@
+# servicemonitor.yaml (si Prometheus Operator est installé)
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: demo-app
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: demo-app
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 30s

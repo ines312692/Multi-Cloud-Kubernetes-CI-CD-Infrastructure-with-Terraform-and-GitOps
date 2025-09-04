@@ -1,0 +1,17 @@
+# infra/k8s/overlays/dev/deployment-patch.yaml (Strategic Merge)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: app
+          env:
+            - name: ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: ENVIRONMENT

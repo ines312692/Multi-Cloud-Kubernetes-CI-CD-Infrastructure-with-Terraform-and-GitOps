@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "argo/apps/firtsapp-dev-app.yaml"
+      - "argo/apps/app-of-apps.yaml"
       - "k8s/**"
 
 jobs:

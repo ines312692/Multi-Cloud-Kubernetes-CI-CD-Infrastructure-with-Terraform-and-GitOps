@@ -1,0 +1,24 @@
+# ingress.yaml (adapter le host et la classe d'ingress)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-app
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - demo.dev.example.com
+      secretName: demo-app-tls
+  rules:
+    - host: demo.dev.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: demo-app
+                port:
+                  number: 80
