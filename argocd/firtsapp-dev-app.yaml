@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<ORG>/<INFRA_REPO>.git
+    repoURL: https://github.com/ines312692/Multi-Cloud-Kubernetes-CI-CD-Infrastructure-with-Terraform-and-GitOps.git
     targetRevision: main
     path: k8s/overlays/dev
   destination:
